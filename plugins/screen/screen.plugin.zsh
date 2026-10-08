@@ -1,6 +1,10 @@
 # if using GNU screen, let the zsh tell screen what the title and hardstatus
 # of the tab window should be.
 if [[ "$TERM" == screen* ]]; then
+  # Unset title() function defined in lib/termsupport.zsh to prevent
+  # overwriting our screen titles
+  title(){}
+
   if [[ $_GET_PATH == '' ]]; then
     _GET_PATH='echo $PWD | sed "s/^\/Users\//~/;s/^\/home\//~/;s/^~$USERNAME/~/"'
   fi
@@ -30,6 +34,8 @@ if [[ "$TERM" == screen* ]]; then
   # tell GNU screen what the tab window title ($1) and the hardstatus($2) should be
   function screen_set()
   {
+    [[ "${DISABLE_AUTO_TITLE:-}" != true ]] || return 0
+
     # set the tab window title (%t) for screen
     print -nR $'\033k'$1$'\033'\\\
 

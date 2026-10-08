@@ -51,19 +51,19 @@ Using [zplug](https://github.com/zplug/zplug):
 
 1. Add this repo to `~/.zshrc`:
 
-        zplug "zsh-users/zsh-history-substring-search", as: plugin
+        zplug "zsh-users/zsh-history-substring-search", as:plugin
 
 Using [antigen](https://github.com/zsh-users/antigen):
 
 1. Add the `antigen bundle` command just before `antigen apply`, like this:
 
-```
+``` 
 antigen bundle zsh-users/zsh-history-substring-search
 antigen apply
 ```
-
+ 
 2. Then, **after** `antigen apply`, add the key binding configurations, like this:
-
+ 
 ```
 # zsh-history-substring-search configuration
 bindkey '^[[A' history-substring-search-up # or '\eOA'
@@ -75,11 +75,11 @@ Using [Zinit](https://github.com/zdharma-continuum/zinit):
 
 1. Use the `Oh-my-zsh` Zinit snippet in `~/.zshrc`:
 
-        zinit snippet OMZ::plugins/git/git.plugin.zsh`
+        zinit snippet OMZ::plugins/git/git.plugin.zsh
 
 2. Load the plugin in `~/.zshrc`:
 
-        zinit load 'zsh-users/zsh-history-substring-search
+        zinit load 'zsh-users/zsh-history-substring-search'
         zinit ice wait atload'_history_substring_search_config'
 
 3. Run `exec zsh` to take changes into account:
@@ -120,7 +120,7 @@ Usage
           bindkey "$terminfo[kcuu1]" history-substring-search-up
           bindkey "$terminfo[kcud1]" history-substring-search-down
 
-      Users have also observed that `[OA` and `[OB` are correct values,
+      Users have also observed that `[OA` and `[OB` are correct values, 
       _even if_ these were not the observed values. If you are having trouble
       with the observed values, give these a try.
 
